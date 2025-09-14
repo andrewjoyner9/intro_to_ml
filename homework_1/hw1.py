@@ -53,26 +53,3 @@ def gradient_descent(X, y, lr=0.1, epochs=1000):
 		theta0 -= lr * d_theta0
 		theta1 -= lr * d_theta1
 	return theta0, theta1, loss_history
-
-# Run gradient descent for X1 with lr=0.1
-theta0, theta1, loss_history = gradient_descent(X1, y, lr=0.1, epochs=1000)
-print(f"Learning rate: 0.1")
-print(f"Model: y = {theta0:.4f} + {theta1:.4f}*x1")
-print(f"Final loss: {loss_history[-1]:.4f}\n")
-# Plot regression line
-plt.figure(figsize=(12,4))
-plt.subplot(1,2,1)
-plt.scatter(X1, y, label='Data')
-plt.plot(X1, theta0 + theta1*X1, color='red', label='Regression line')
-plt.xlabel('X1')
-plt.ylabel('Y')
-plt.title('Linear Regression (lr=0.1)')
-plt.legend()
-# Plot loss
-plt.subplot(1,2,2)
-plt.plot(loss_history)
-plt.xlabel('Iteration')
-plt.ylabel('Loss')
-plt.title('Loss over Iterations')
-plt.tight_layout()
-plt.show()
